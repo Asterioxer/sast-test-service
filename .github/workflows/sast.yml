@@ -6,7 +6,7 @@ on:
 
 jobs:
   sast:
-    uses: <ORG>/sast-platform-standardization/.github/workflows/sast.yml@main
+    uses: Asterioxer/sast-ci-pipeline-implementation/.github/workflows/sast.yml@main
     secrets:
       SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
 
