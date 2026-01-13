@@ -1,23 +1,12 @@
-# name: SAST Scan
+      - name: Enforce SAST policy
+        run: |
+          findings=$(jq '.results | length' sast-results.json)
 
-# on:
-#   push:
-#   pull_request:
+          echo "Total SAST findings: $findings"
 
-# jobs:
-#   sast:
-#     uses: Asterioxer/sast-ci-pipeline-implementation/.github/workflows/sast.yml@main
-#     secrets:
-#       SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
- name: Enforce SAST policy
-  run: |
-    findings=$(jq '.results | length' sast-results.json)
-
-    echo "Total SAST findings: $findings"
-
-    if [ "$findings" -gt 0 ]; then
-      echo "❌ SAST findings detected. Failing build."
-      exit 1
-    else
-      echo "✅ No SAST findings detected."
-    fi
+          if [ "$findings" -gt 0 ]; then
+            echo "❌ SAST findings detected. Failing build."
+            exit 1
+          else
+            echo "✅ No SAST findings detected."
+          fi
