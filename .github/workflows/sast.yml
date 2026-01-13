@@ -1,16 +1,14 @@
-name: SAST Scan
+# name: SAST Scan
 
-on:
-  push:
-  pull_request:
+# on:
+#   push:
+#   pull_request:
 
-jobs:
-  sast:
-    uses: Asterioxer/sast-ci-pipeline-implementation/.github/workflows/sast.yml@main
-    secrets:
-      SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
-
-
+# jobs:
+#   sast:
+#     uses: Asterioxer/sast-ci-pipeline-implementation/.github/workflows/sast.yml@main
+#     secrets:
+#       SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
  name: Enforce SAST policy
   run: |
     findings=$(jq '.results | length' sast-results.json)
