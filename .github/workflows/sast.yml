@@ -11,7 +11,7 @@ jobs:
       SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
 
 
-- name: Enforce SAST policy
+ name: Enforce SAST policy
   run: |
     findings=$(jq '.results | length' sast-results.json)
 
