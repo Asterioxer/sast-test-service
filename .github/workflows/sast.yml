@@ -1,0 +1,12 @@
+name: SAST Scan
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  sast:
+    uses: <ORG>/sast-platform-standardization/.github/workflows/sast.yml@main
+    secrets:
+      SAST_TOKEN: ${{ secrets.SAST_TOKEN }}
+
