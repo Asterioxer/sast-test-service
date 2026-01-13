@@ -1,6 +1,6 @@
-import os
+import sqlite3
 
-def insecure_function():
-    password = "hardcoded_password"
-    return password
-
+def insecure(user_input):
+    conn = sqlite3.connect("test.db")
+    query = "SELECT * FROM users WHERE name = '" + user_input + "'"
+    conn.execute(query)
